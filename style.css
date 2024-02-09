@@ -1,0 +1,180 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(185, 41%, 84%);
+  font-family: "Space Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+  font-size: 24px;
+}
+
+#container {
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: white;
+  max-width: 960px;
+  max-height: 960px;
+  display: flex;
+}
+
+#left-side {
+  width: 358px;
+  padding: 10px;
+  background-color: white;
+}
+
+#right-side {
+  border-radius: 10px;
+  padding: 20px;
+  width: 358px;
+  background-color: hsl(183, 100%, 15%);
+}
+
+#bill-amount,
+#people-amount {
+  text-align: right;
+  width: 100%;
+  min-height: 40px;
+  border-radius: 5px;
+  border: none;
+}
+
+.input-container input::placeholder {
+  color: hsl(
+    183,
+    100%,
+    15%
+  ); /* Change the color of the placeholder text on the right */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* input[type="number"] {
+  -moz-appearance: textfield;
+} */
+
+#bill {
+  padding-bottom: 5px;
+}
+
+.input-container {
+  position: relative;
+  width: 100%; /* Adjust width as needed */
+}
+
+#select {
+  margin-top: 25px;
+}
+
+.input-container input {
+  background-color: hsl(185, 41%, 84%);
+  font-size: 24px;
+  width: calc(100% - 40px); /* Adjust width to accommodate both placeholders */
+  padding-left: 40px; /* Space for the left placeholder */
+  padding-right: 10px;
+}
+
+.left-placeholder {
+  font-size: 24px;
+  position: absolute;
+  left: 10px; /* Adjust left position as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa; /* Color for the left placeholder */
+  pointer-events: none; /* Prevents clicking on the left placeholder */
+}
+
+#buttons {
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding-bottom: 30px;
+}
+
+button {
+  color: white;
+  background-color: hsl(183, 100%, 15%);
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  padding: 10px 20px;
+}
+
+button:hover {
+  background-color: hsl(172, 67%, 45%);
+}
+
+.selected {
+  background-color: hsl(172, 67%, 45%);
+}
+
+#person {
+  color: hsl(186, 14%, 43%);
+}
+
+#right-side p {
+  color: white;
+}
+
+#custom {
+  color: hsl(183, 100%, 15%);
+}
+
+#number {
+  margin-bottom: 5px;
+}
+
+#per-person {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+
+#total-person {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 70px;
+}
+
+.display-amount {
+  color: hsl(172, 67%, 45%);
+  font-size: 40px;
+}
+
+#reset {
+  color: hsl(183, 100%, 15%);
+  background-color: hsl(172, 67%, 45%);
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#custom {
+  color: hsl(183, 100%, 15%);
+  background-color: hsl(185, 41%, 84%);
+}
+
+#left-side p {
+  color: hsl(184, 14%, 56%);
+}
+
+#custom-number {
+  /* width: 75%;
+  font-size: inherit; */
+  display: none;
+  border-radius: 5px;
+  border: 1px solid hsl(183, 100%, 15%);
+}

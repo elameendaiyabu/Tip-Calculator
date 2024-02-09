@@ -1,0 +1,10 @@
+{
+  "editor.minimap.autohide": true,
+  "editor.minimap.scale": 2,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.showSlider": "mouseover",
+  "editor.minimap.enabled": true,
+  "editor.fontSize": 18,
+  "editor.fontFamily": "Anonymous Pro",
+  "editor.fontLigatures": true
+}
