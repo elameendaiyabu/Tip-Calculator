@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (isBill && isPeople && isPercentage) {
       let amountValue = ((billAmount / 100) * percentage) / peopleAmount;
 
-      amountPerPerson.textContent = `\$${amountValue.toFixed(2)}`;
+      amountPerPerson.textContent = `\$${amountValue.toFixed(1)}`;
       totalPerPerson.textContent = `\$${(
         billAmount / peopleAmount +
         amountValue
-      ).toFixed(2)}`;
+      ).toFixed(1)}`;
       reset();
     }
   }
