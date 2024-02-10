@@ -240,7 +240,7 @@ input:checked + .radio-tile label {
 
 @media screen and (max-width: 670px) {
   body {
-    margin-top: 100px;
+    margin-top: 150px;
     padding: 0;
   }
 
