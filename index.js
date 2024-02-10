@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPerPerson = document.getElementById("total-person");
   const customContainer = document.getElementById("custom-container");
   const customPercentage = document.getElementById("custom-input");
+  const resets = document.getElementById("reset");
   let billAmount;
   let peopleAmount;
   let percentage;
@@ -17,6 +18,30 @@ document.addEventListener("DOMContentLoaded", () => {
   let isPeople = false;
   let isPercentage = false;
   const percentageArray = [5, 10, 15, 20, 25];
+
+  function render() {
+    if (isBill && isPeople && isPercentage) {
+      let amountValue = ((billAmount / 100) * percentage) / peopleAmount;
+
+      amountPerPerson.textContent = `\$${amountValue.toFixed(2)}`;
+      totalPerPerson.textContent = `\$${(
+        billAmount / peopleAmount +
+        amountValue
+      ).toFixed(2)}`;
+      reset();
+    }
+  }
+
+  function reset() {
+    resets.style.backgroundColor = "cyan";
+    resets.addEventListener("click", () => {
+      resets.style.backgroundColor = "";
+      bill.value = "";
+      people.value = "";
+      amountPerPerson = "$0.00";
+      totalPerPerson = "$0.00";
+    });
+  }
 
   bill.addEventListener("focus", () => {
     bill.classList.add("success");
@@ -75,37 +100,28 @@ document.addEventListener("DOMContentLoaded", () => {
     render();
   });
 
-  function render() {
-    if (isBill && isPeople && isPercentage) {
-      let amountValue = ((billAmount / 100) * percentage) / peopleAmount;
-
-      amountPerPerson.textContent = `\$${amountValue}`;
-      totalPerPerson.textContent = `\$${
-        billAmount / peopleAmount + amountValue
-      }`;
-    }
-  }
+  customPercentage.addEventListener("focus", () => {
+    customPercentage.classList.add("success");
+  });
 
   custom.addEventListener("click", function () {
     customContainer.style.display = "none";
     customPercentage.style.display = "block";
+  });
 
-    customPercentage.addEventListener("blur", () => {
-      if (customPercentage.value > 0) {
-        errorMessage2.textContent = "";
-        customPercentage.classList.remove("error");
-        customPercentage.classList.add("success");
-        customPercentage.style.borderColor = "green";
-        customPercentageAmount = customPercentage.value;
-        parseFloat(customPercentageAmount);
-        console.log(customPercentageAmount);
-      } else {
-        customPercentage.classList.add("error");
-        customPercentage.style.borderColor = "red";
-        errorMessage2.textContent = "Can't be zero";
-      }
+  customPercentage.addEventListener("blur", () => {
+    if (customPercentage.value > 0) {
+      errorMessage2.textContent = "";
+      customPercentage.classList.remove("error");
+      customPercentage.classList.add("success");
+      customPercentage.style.borderColor = "green";
+      customPercentageAmount = parseFloat(customPercentage.value);
       percentage = customPercentageAmount;
-    });
-    render();
+      isPercentage = true;
+      render();
+    } else {
+      customPercentage.classList.add("error");
+      customPercentage.style.borderColor = "red";
+    }
   });
 });
