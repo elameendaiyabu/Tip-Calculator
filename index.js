@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
       people.value = "";
       amountPerPerson = "$0.00";
       totalPerPerson = "$0.00";
+      customContainer.style.display = "block";
+      customPercentage.style.display = "none";
+      radios.checked = "";
     });
   }
 
@@ -107,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
   custom.addEventListener("click", function () {
     customContainer.style.display = "none";
     customPercentage.style.display = "block";
+    radios.checked = "";
   });
 
   customPercentage.addEventListener("blur", () => {
