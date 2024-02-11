@@ -36,13 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
     resets.style.backgroundColor = "cyan";
     resets.addEventListener("click", () => {
       resets.style.backgroundColor = "";
+      isBill = false;
+      isPeople = false;
+      isPercentage = false;
+      percentage = "";
+      customPercentageAmount = "";
       bill.value = "";
       people.value = "";
-      amountPerPerson = "$0.00";
-      totalPerPerson = "$0.00";
+      amountPerPerson.textContent = "$0.00";
+      totalPerPerson.textContent = "$0.00";
       customContainer.style.display = "block";
       customPercentage.style.display = "none";
-      radios.checked = "";
     });
   }
 
@@ -50,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bill.classList.add("success");
   });
 
-  bill.addEventListener("blur", () => {
+  bill.addEventListener("keyup", () => {
     if (bill.value > 0) {
       errorMessage.textContent = "";
       bill.classList.remove("error");
@@ -72,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     people.classList.add("success");
   });
 
-  people.addEventListener("blur", () => {
+  people.addEventListener("keyup", () => {
     if (people.value > 0) {
       errorMessage2.textContent = "";
       people.classList.remove("error");
@@ -99,8 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log(percentage);
         }
       });
+      render();
     });
-    render();
   });
 
   customPercentage.addEventListener("focus", () => {
@@ -113,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     radios.checked = "";
   });
 
-  customPercentage.addEventListener("blur", () => {
+  customPercentage.addEventListener("keyup", () => {
     if (customPercentage.value > 0) {
       errorMessage2.textContent = "";
       customPercentage.classList.remove("error");
