@@ -238,7 +238,7 @@ input:checked + .radio-tile label {
   outline: 2px solid red;
 }
 
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 600px) {
   body {
     margin-top: 150px;
     padding: 0;
